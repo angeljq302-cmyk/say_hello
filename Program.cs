@@ -24,4 +24,7 @@ var librosSifi = servicio.ObtenerLibrosSiFi();
 Console.WriteLine($"\nBuscando Ciencia Ficción... Encontrados: {librosSifi.Count}");
 foreach(var libro in librosSifi) {
     Console.WriteLine($"- {libro.Nombre} de {libro.Autor}");
+    // Probando el caso de uso que yo creé
+var porEditorial = servicio.ObtenerLibrosPorEditorial("RM");
+Console.WriteLine($"\nCaso de uso de Ángel: Buscando Editorial RM... Encontrados: {porEditorial.Count}");
 }

@@ -36,4 +36,8 @@ public class LibraryService : ILibraryService
     public void AgregarLibro(Libro nuevoLibro) {
         _libros.Add(nuevoLibro);
     }
+    public List<Libro> ObtenerLibrosPorEditorial(string editorial)
+{
+    return _libros.Where(l => l.Editorial == editorial).ToList();
+}
 }
