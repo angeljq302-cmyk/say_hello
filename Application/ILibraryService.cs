@@ -1,13 +1,11 @@
-using System.Collections.Generic;
 using Core;
+using System.Collections.Generic;
 
 namespace Application;
 
 public interface ILibraryService
 {
-    List<Libro> ObtenerLibrosSiFi();
-    List<Libro> ObtenerLibrosOctavioPaz();
-    void AgregarLibro(Libro nuevoLibro);
-    List<Libro>
-     ObtenerLibrosPorEditorial(string editorial);
+    void AgregarArticulo(Articulo nuevo);
+    List<Articulo> ConsultarTodos();
+    List<Articulo> ConsultarStockBajo();
 }
