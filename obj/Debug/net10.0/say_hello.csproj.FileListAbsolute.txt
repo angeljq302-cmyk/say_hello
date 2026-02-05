@@ -1,0 +1,15 @@
+C:\proyectos\say_hello\bin\Debug\net10.0\say_hello.exe
+C:\proyectos\say_hello\bin\Debug\net10.0\say_hello.deps.json
+C:\proyectos\say_hello\bin\Debug\net10.0\say_hello.runtimeconfig.json
+C:\proyectos\say_hello\bin\Debug\net10.0\say_hello.dll
+C:\proyectos\say_hello\bin\Debug\net10.0\say_hello.pdb
+C:\proyectos\say_hello\obj\Debug\net10.0\say_hello.GeneratedMSBuildEditorConfig.editorconfig
+C:\proyectos\say_hello\obj\Debug\net10.0\say_hello.AssemblyInfoInputs.cache
+C:\proyectos\say_hello\obj\Debug\net10.0\say_hello.AssemblyInfo.cs
+C:\proyectos\say_hello\obj\Debug\net10.0\say_hello.csproj.CoreCompileInputs.cache
+C:\proyectos\say_hello\obj\Debug\net10.0\say_hello.sourcelink.json
+C:\proyectos\say_hello\obj\Debug\net10.0\say_hello.dll
+C:\proyectos\say_hello\obj\Debug\net10.0\refint\say_hello.dll
+C:\proyectos\say_hello\obj\Debug\net10.0\say_hello.pdb
+C:\proyectos\say_hello\obj\Debug\net10.0\say_hello.genruntimeconfig.cache
+C:\proyectos\say_hello\obj\Debug\net10.0\ref\say_hello.dll
