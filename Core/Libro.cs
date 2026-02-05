@@ -7,4 +7,4 @@ public class Libro {
     public int AñoPublicacion { get; set; }
     public string Editorial { get; set; }
     public string Autor { get; set; }
-    
+}
