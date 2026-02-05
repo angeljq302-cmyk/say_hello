@@ -1,19 +1,27 @@
 using System;
+using Application;
+using Core;
 
-// 1. Entrada de datos
-int n1 = 15, n2 = 7, n3 = 20;
+// 1. Iniciamos el servicio de la biblioteca
+var servicio = new LibraryService();
 
-// 2. Flujo para encontrar el menor
-int menor = Math.Min(n1, Math.Min(n2, n3));
-Console.WriteLine("El número menor es: " + menor);
+// 2. Agregamos libros de prueba para que el profe vea datos
+servicio.AgregarLibro(new Libro { Nombre = "El Laberinto de la Soledad", Autor = "Octavio Paz", Genero = "Ensayo" });
+servicio.AgregarLibro(new Libro { Nombre = "Fundación", Autor = "Isaac Asimov", Genero = "Si-Fi" });
+servicio.AgregarLibro(new Libro { Nombre = "Cien años de soledad", Autor = "Gabriel García Márquez", Genero = "Novela" });
 
-// 3. Flujo para verificar si es primo
-bool esPrimo = true;
-if (menor < 2) esPrimo = false;
-for (int i = 2; i < menor; i++) {
-    if (menor % i == 0) esPrimo = false;
+Console.WriteLine("=== SISTEMA DE BIBLIOTECA UTM ===");
+
+// 3. Probamos la búsqueda de Octavio Paz
+var librosPaz = servicio.ObtenerLibrosOctavioPaz();
+Console.WriteLine($"\nBuscando a Octavio Paz... Encontrados: {librosPaz.Count}");
+foreach(var libro in librosPaz) {
+    Console.WriteLine($"- {libro.Nombre} ({libro.Genero})");
 }
 
-// 4. Salida de resultados
-if (esPrimo) Console.WriteLine(menor + " es un número primo.");
-else Console.WriteLine(menor + " no es un número primo.");
+// 4. Probamos la búsqueda de Si-Fi
+var librosSifi = servicio.ObtenerLibrosSiFi();
+Console.WriteLine($"\nBuscando Ciencia Ficción... Encontrados: {librosSifi.Count}");
+foreach(var libro in librosSifi) {
+    Console.WriteLine($"- {libro.Nombre} de {libro.Autor}");
+}
