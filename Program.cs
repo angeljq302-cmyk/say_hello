@@ -2,29 +2,36 @@ using System;
 using Application;
 using Core;
 
-// 1. Iniciamos el servicio de la biblioteca
 var servicio = new LibraryService();
 
-// 2. Agregamos libros de prueba para que el profe vea datos
-servicio.AgregarLibro(new Libro { Nombre = "El Laberinto de la Soledad", Autor = "Octavio Paz", Genero = "Ensayo" });
-servicio.AgregarLibro(new Libro { Nombre = "Fundación", Autor = "Isaac Asimov", Genero = "Si-Fi" });
-servicio.AgregarLibro(new Libro { Nombre = "Cien años de soledad", Autor = "Gabriel García Márquez", Genero = "Novela" });
+// --- LIBROS DE LA PIZARRA ---
+servicio.AgregarLibro(new Libro { ISBN = "111", Nombre = "El Laberinto de la Soledad", Autor = "Octavio Paz", Editorial = "FCE", Genero = "Ensayo", AnioPublicacion = 1950 });
+servicio.AgregarLibro(new Libro { ISBN = "222", Nombre = "Fundacion", Autor = "Isaac Asimov", Editorial = "Debolsillo", Genero = "Si-Fi", AnioPublicacion = 1951 });
 
-Console.WriteLine("=== SISTEMA DE BIBLIOTECA UTM ===");
+// --- EL LIBRO DE ANGEL QUINTAL (TU CASO DE USO) ---
+servicio.AgregarLibro(new Libro { 
+    ISBN = "UTM-2024-Q", 
+    Nombre = "Manual de Supervivencia en Programacion", 
+    Autor = "Angel Quintal", 
+    Editorial = "Quintal Ediciones", 
+    Genero = "Novela",
+    AnioPublicacion = 2024 
+});
 
-// 3. Probamos la búsqueda de Octavio Paz
-var librosPaz = servicio.ObtenerLibrosOctavioPaz();
-Console.WriteLine($"\nBuscando a Octavio Paz... Encontrados: {librosPaz.Count}");
-foreach(var libro in librosPaz) {
-    Console.WriteLine($"- {libro.Nombre} ({libro.Genero})");
-}
+Console.WriteLine("=== SISTEMA DE BIBLIOTECA UTM - ANGEL QUINTAL ===");
 
-// 4. Probamos la búsqueda de Si-Fi
-var librosSifi = servicio.ObtenerLibrosSiFi();
-Console.WriteLine($"\nBuscando Ciencia Ficción... Encontrados: {librosSifi.Count}");
-foreach(var libro in librosSifi) {
-    Console.WriteLine($"- {libro.Nombre} de {libro.Autor}");
-    // Probando el caso de uso que yo creé
-var porEditorial = servicio.ObtenerLibrosPorEditorial("RM");
-Console.WriteLine($"\nCaso de uso de Ángel: Buscando Editorial RM... Encontrados: {porEditorial.Count}");
-}
+// Caso de Uso 1: Octavio Paz
+var paz = servicio.ObtenerLibrosOctavioPaz();
+Console.WriteLine($"\nBuscando Octavio Paz... Encontrados: {paz.Count}");
+foreach(var l in paz) Console.WriteLine($"- {l.Nombre}");
+
+// Caso de Uso 2: Si-Fi
+var sifi = servicio.ObtenerLibrosSiFi();
+Console.WriteLine($"\nBuscando Ciencia Ficcion... Encontrados: {sifi.Count}");
+foreach(var l in sifi) Console.WriteLine($"- {l.Nombre}");
+
+// TU CASO DE USO: Buscar por editorial
+Console.WriteLine("\n>>> MI CASO DE USO PROPIO <<<");
+var miEditorial = servicio.ObtenerLibrosPorEditorial("Quintal Ediciones");
+Console.WriteLine($"Buscando Editorial Quintal... Encontrados: {miEditorial.Count}");
+foreach(var l in miEditorial) Console.WriteLine($"- Libro: {l.Nombre} | Autor: {l.Autor}");
